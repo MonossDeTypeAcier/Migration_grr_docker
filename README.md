@@ -1,21 +1,40 @@
-# Migration_grr_docker
-Migration d'une installation existante de grr sur docker 
+# Migration de GRR vers Docker
 
-## Initialisation
+Ce projet permet de migrer une installation existante de GRR vers un environnement Docker.
+## Pré-requis
 
-Pour utiliser ce projet, il vous faudra une installation de GRR, que vous copierait dans un dossier "html" que vous mettrez dans le même dossier que le projet.
-il faudra adapter le fichier "connect.inc.php" à la nouvelle installation.
+Avant de commencer, assurez-vous d’avoir :
 
-Adaptez le docker compose à votre installation.
+    Une installation existante de GRR.
 
-Faites un dump de la base de données (mariadb-dump / mysqldump)
+    Un dossier html contenant l’installation de GRR, placé dans le répertoire du projet.
 
-installer make.
+    Un fichier connect.inc.php adapté à la nouvelle installation.
 
+    Un dump de la base de données (MariaDB ou MySQL) obtenu via mariadb-dump ou mysqldump.
 
-## Lancement 
+    Docker, Docker Compose et Make installés sur votre machine.
 
-Au premier lancement, faite un "make install" pour initialiser le docker et le créer.
+    Un fichier docker-compose.yml configuré selon votre installation.
 
-Après que les deux docker se soit créé importez le dump de la base de données avec la commande suivantte :
-docker exec -it nomdudocker mariadb -u root -p grr < fichier_dump.sql
+## Installation et Lancement
+
+    Initialisation du conteneur
+    Exécutez la commande suivante pour créer et initialiser l’environnement Docker :
+```
+make install
+```
+Import de la base de données
+Une fois les conteneurs créés et en cours d'exécution, importez le dump de la base de données avec la commande suivante :
+```
+ docker exec -it <nom_du_conteneur> mariadb -u root -p grr < fichier_dump.sql
+```
+    Remplacez <nom_du_conteneur> par le nom réel du conteneur MariaDB/MySQL.
+
+## Personnalisation
+
+    Modification de la connexion à la base de données
+    Assurez-vous que le fichier connect.inc.php pointe vers la base de données hébergée dans le conteneur.
+
+    Configuration de Docker Compose
+    Adaptez le fichier docker-compose.yml en fonction de votre environnement et de vos besoins.
