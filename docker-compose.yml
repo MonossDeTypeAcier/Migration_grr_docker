@@ -1,0 +1,62 @@
+version: "3"
+# ╔═════════════════════════════════════╗
+# ║ Services                            ║
+# ╚═════════════════════════════════════╝
+services:
+# ╔═════════════════════════════════════╗
+# ║ grr
+# ╚═══════════════╝
+  grr:
+    build:
+      context: .
+      args:
+        PHP_VERSION: "8.2"
+        GRR_VERSION: "3.5.2"
+    ports:
+      - 3300:80
+    depends_on:
+      - mariadb
+    volumes:
+      - ./html:/var/www/html/
+    networks:
+      - grr
+# ╔═══════════════╗
+# ║ grr
+# ╚═════════════════════════════════════╝
+# ╔═════════════════════════════════════╗
+# ║ mariadb
+# ╚═══════════════╝
+  mariadb:
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: CHANGEME
+      MYSQL_DATABASE: grr
+      MYSQL_USER: grr
+      MYSQL_PASSWORD: CHANGEME
+    restart: on-failure
+    ports:
+      - 3303:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - grr
+# ╔═══════════════╗
+# ║ mariadb
+# ╚═════════════════════════════════════╝
+# ╔═════════════════════════════════════╗
+# ║ volumes
+# ╚═══════════════╝
+volumes:
+  html: {}
+  mysql: {}
+# ╔═══════════════╗
+# ║ volumes
+# ╚═════════════════════════════════════╝
+# ╔═════════════════════════════════════╗
+# ║ networks
+# ╚═══════════════╝
+networks:
+  grr:
+# ╔═══════════════╗
+# ║ networks
+# ╚═════════════════════════════════════╝
