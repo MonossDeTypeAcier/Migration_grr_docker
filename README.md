@@ -5,17 +5,17 @@ Ce projet permet de migrer une installation existante de GRR vers un environneme
 
 Avant de commencer, assurez-vous d’avoir :
 
-    Une installation existante de GRR.
+- Une installation existante de GRR.
 
-    Un dossier html contenant l’installation de GRR, placé dans le répertoire du projet.
+- Un dossier html contenant l’installation de GRR, placé dans le répertoire du projet.
 
-    Un fichier connect.inc.php adapté à la nouvelle installation.
+- Un fichier connect.inc.php adapté à la nouvelle installation.
 
-    Un dump de la base de données (MariaDB ou MySQL) obtenu via mariadb-dump ou mysqldump.
+- Un dump de la base de données (MariaDB ou MySQL) obtenu via mariadb-dump ou mysqldump.
 
-    Docker, Docker Compose et Make installés sur votre machine.
+- Docker, Docker Compose et Make installés sur votre machine.
 
-    Un fichier docker-compose.yml configuré selon votre installation.
+- Un fichier docker-compose.yml configuré selon votre installation.
 
 ## Installation et Lancement
 
