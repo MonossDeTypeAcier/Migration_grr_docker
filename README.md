@@ -33,8 +33,8 @@ Remplacez <nom_du_conteneur> par le nom réel du conteneur MariaDB/MySQL.
 
 ### Personnalisation
 
-    Modification de la connexion à la base de données
-    Assurez-vous que le fichier connect.inc.php pointe vers la base de données hébergée dans le conteneur.
+Modification de la connexion à la base de données
+Assurez-vous que le fichier connect.inc.php pointe vers la base de données hébergée dans le conteneur.
 
-    Configuration de Docker Compose
-    Adaptez le fichier docker-compose.yml en fonction de votre environnement et de vos besoins.
+Configuration de Docker Compose
+Adaptez le fichier docker-compose.yml en fonction de votre environnement et de vos besoins.
