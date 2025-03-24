@@ -19,8 +19,8 @@ Avant de commencer, assurez-vous d’avoir :
 
 ## Installation et Lancement
 
-    Initialisation du conteneur
-    Exécutez la commande suivante pour créer et initialiser l’environnement Docker :
+### Initialisation du conteneur
+Exécutez la commande suivante pour créer et initialiser l’environnement Docker :
 ```
 make install
 ```
@@ -29,9 +29,9 @@ Une fois les conteneurs créés et en cours d'exécution, importez le dump de la
 ```
  docker exec -it <nom_du_conteneur> mariadb -u root -p grr < fichier_dump.sql
 ```
-    Remplacez <nom_du_conteneur> par le nom réel du conteneur MariaDB/MySQL.
+Remplacez <nom_du_conteneur> par le nom réel du conteneur MariaDB/MySQL.
 
-## Personnalisation
+### Personnalisation
 
     Modification de la connexion à la base de données
     Assurez-vous que le fichier connect.inc.php pointe vers la base de données hébergée dans le conteneur.
