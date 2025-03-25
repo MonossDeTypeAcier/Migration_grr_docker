@@ -13,7 +13,7 @@ services:
         PHP_VERSION: "8.2"
         GRR_VERSION: "3.5.2"
     ports:
-      - 3300:80
+      - 80:80
     depends_on:
       - mariadb
     volumes:
@@ -35,7 +35,7 @@ services:
       MYSQL_PASSWORD: CHANGEME
     restart: on-failure
     ports:
-      - 3303:3306
+      - 3306:3306
     volumes:
       - ./mysql:/var/lib/mysql
     networks:
